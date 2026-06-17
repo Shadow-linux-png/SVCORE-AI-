@@ -1,8 +1,31 @@
 # 🌐 Multilingual Translation Web Application
 
-A full-stack translation web application that translates Hindi text into **English, Tamil, and Bengali** using a **FastAPI backend** and a **Streamlit frontend**.
+A full-stack web application that translates Hindi text into **English, Tamil, and Bengali** using a **FastAPI backend** and an **interactive Streamlit frontend**.
 
-## 🚀 Features
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green?logo=fastapi)
+![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-red?logo=streamlit)
+![Status](https://img.shields.io/badge/Status-Deployed-success)
+
+---
+
+# 🚀 Live Demo
+
+### 🌐 Frontend
+
+https://hdbcqj9nrnpwk8qpzdvzkr.streamlit.app/
+
+### ⚡ Backend API
+
+https://svcore-ai-translation-api.onrender.com
+
+### 📖 API Documentation (Swagger UI)
+
+https://svcore-ai-translation-api.onrender.com/docs
+
+---
+
+# ✨ Features
 
 * Translate Hindi text into:
 
@@ -11,16 +34,19 @@ A full-stack translation web application that translates Hindi text into **Engli
   * Bengali
 * FastAPI REST API backend
 * Interactive Streamlit user interface
+* Real-time translation requests
 * Character counter
 * Loading spinner
 * Clear button
 * Error handling
-* Health check endpoint
-* Deployable on Render and Streamlit Community Cloud
+* Modular project structure
+* Render deployment support
+* Streamlit Community Cloud deployment
+* Responsive multi-column translation display
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
 TASK/
@@ -38,9 +64,9 @@ TASK/
 
 ---
 
-## 🛠 Tech Stack
+# 🛠 Tech Stack
 
-### Backend
+## Backend
 
 * Python
 * FastAPI
@@ -48,7 +74,7 @@ TASK/
 * Uvicorn
 * Deep Translator
 
-### Frontend
+## Frontend
 
 * Streamlit
 * Requests
@@ -57,13 +83,24 @@ TASK/
 
 # ⚙️ Backend Setup
 
-## 1. Navigate to backend
+## 1. Clone Repository
+
+```bash
+git clone https://github.com/Shadow-linux-png/SVCORE-AI-.git
+cd SVCORE-AI-
+```
+
+---
+
+## 2. Navigate to Backend
 
 ```bash
 cd backend
 ```
 
-## 2. Create virtual environment
+---
+
+## 3. Create Virtual Environment
 
 ### Windows
 
@@ -79,19 +116,23 @@ python -m venv venv
 source venv/bin/activate
 ```
 
-## 3. Install dependencies
+---
+
+## 4. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 4. Run FastAPI server
+---
+
+## 5. Run FastAPI Server
 
 ```bash
 uvicorn main:app --reload --port 8000
 ```
 
-Server:
+Backend runs on:
 
 ```text
 http://localhost:8000
@@ -107,13 +148,15 @@ http://localhost:8000/docs
 
 # ⚙️ Frontend Setup
 
-## 1. Navigate to frontend
+## 1. Navigate to Frontend
 
 ```bash
 cd frontend
 ```
 
-## 2. Create virtual environment
+---
+
+## 2. Create Virtual Environment
 
 ### Windows
 
@@ -129,19 +172,23 @@ python -m venv venv
 source venv/bin/activate
 ```
 
-## 3. Install dependencies
+---
+
+## 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 4. Run Streamlit
+---
+
+## 4. Run Streamlit Application
 
 ```bash
 streamlit run app.py
 ```
 
-Application:
+Application runs on:
 
 ```text
 http://localhost:8501
@@ -149,25 +196,7 @@ http://localhost:8501
 
 ---
 
-# 📡 API Endpoints
-
-## Health Check
-
-### Endpoint
-
-```http
-GET /health
-```
-
-### Response
-
-```json
-{
-  "status": "healthy"
-}
-```
-
----
+# 📡 API Endpoint
 
 ## Translate Text
 
@@ -193,6 +222,24 @@ POST /translate
   "tamil": "ஹலோ",
   "bengali": "হ্যালো"
 }
+```
+
+---
+
+# 🧪 Example Usage
+
+### Input
+
+```text
+मेरा नाम आर्यन है
+```
+
+### Output
+
+```text
+English : My name is Aryan
+Tamil    : என் பெயர் ஆர்யன்
+Bengali  : আমার নাম আর্যন
 ```
 
 ---
@@ -232,37 +279,20 @@ https://your-app-name.onrender.com/docs
 
 ## Frontend Deployment (Streamlit Community Cloud)
 
-Set the backend URL inside `app.py`:
+Update the backend URL inside `app.py`:
 
 ```python
 FASTAPI_URL = "https://your-render-url.onrender.com"
 ```
 
-Deploy the repository on Streamlit Community Cloud and set:
+Deploy using:
 
-* Repository: Your GitHub repository
-* Main file path:
+* Repository: GitHub Repository
+* Branch: main
+* Main File Path:
 
 ```text
 frontend/app.py
-```
-
----
-
-# 🧪 Example Usage
-
-Input:
-
-```text
-मेरा नाम आर्यन है
-```
-
-Output:
-
-```text
-English : My name is Aryan
-Tamil    : என் பெயர் ஆர்யன்
-Bengali  : আমার নাম আর্যন
 ```
 
 ---
@@ -272,17 +302,43 @@ Bengali  : আমার নাম আর্যন
 This project demonstrates:
 
 * REST API development using FastAPI
-* API consumption using Streamlit
-* Request and response validation with Pydantic
-* Frontend and backend separation
-* Deployment of production-ready Python applications
+* API integration using Requests
+* Frontend development using Streamlit
+* Request and response handling
+* Backend and frontend separation
+* Deployment of Python applications
+* Cloud deployment using Render and Streamlit
 * Integration of multilingual translation services
+* Building production-ready AI-powered web applications
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Aryan Shukla**
-
 B.Tech CSE (AI/ML) Student
-Python • FastAPI • Machine Learning • RAG • AI Applications
+
+### Skills
+
+* Python
+* FastAPI
+* Machine Learning
+* Retrieval-Augmented Generation (RAG)
+* AI Applications
+* Backend Development
+
+### GitHub
+
+https://github.com/Shadow-linux-png
+
+### LinkedIn
+
+https://www.linkedin.com/in/aryan-shukla-3821b135a/
+
+### Portfolio
+
+https://auto-repo-shine.lovable.app/
+
+---
+
+⭐ If you found this project useful, consider giving the repository a star.
