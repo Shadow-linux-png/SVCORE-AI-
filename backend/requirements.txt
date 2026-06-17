@@ -3,3 +3,4 @@ uvicorn[standard]
 # googletrans==3.1.0a0  # Removed due to compatibility issues
 pydantic
 # Consider using a more robust translation service like Google Cloud Translation API, AWS Translate, etc.
+deep-translator
