@@ -1,100 +1,288 @@
-# Multilingual Translation Web Application
+# 🌐 Multilingual Translation Web Application
 
-This project provides a web application for translating Hindi text into English, Tamil, and Bengali. It consists of a FastAPI backend and a Streamlit frontend.
+A full-stack translation web application that translates Hindi text into **English, Tamil, and Bengali** using a **FastAPI backend** and a **Streamlit frontend**.
 
-## Project Structure
+## 🚀 Features
 
-\`\`\`
-.
+* Translate Hindi text into:
+
+  * English
+  * Tamil
+  * Bengali
+* FastAPI REST API backend
+* Interactive Streamlit user interface
+* Character counter
+* Loading spinner
+* Clear button
+* Error handling
+* Health check endpoint
+* Deployable on Render and Streamlit Community Cloud
+
+---
+
+## 📂 Project Structure
+
+```text
+TASK/
 ├── backend/
-│   ├── __init__.py
 │   ├── main.py
 │   └── requirements.txt
+│
 ├── frontend/
-│   ├── __init__.py
 │   ├── app.py
 │   └── requirements.txt
+│
 └── docs/
     └── README.md
-\`\`\`
+```
 
-## Setup and Installation
+---
 
-### Backend (FastAPI)
+## 🛠 Tech Stack
 
-1.  **Navigate to the backend directory:**
-    \`\`\`bash
-    cd backend
-    \`\`\`
-2.  **Create a virtual environment (recommended):**
-    \`\`\`bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use \`venv\\Scripts\\activate\`
-    \`\`\`
-3.  **Install dependencies:**
-    \`\`\`bash
-    pip install -r requirements.txt
-    \`\`\`
-4.  **Run the FastAPI server:**
-    \`\`\`bash
-    uvicorn main:app --reload --port 8000
-    \`\`\`
-    The API will be available at \`http://localhost:8000\`.
+### Backend
 
-### Frontend (Streamlit)
+* Python
+* FastAPI
+* Pydantic
+* Uvicorn
+* Deep Translator
 
-1.  **Navigate to the frontend directory:**
-    \`\`\`bash
-    cd ../frontend
-    \`\`\`
-2.  **Create a virtual environment (recommended):**
-    \`\`\`bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use \`venv\\Scripts\\activate\`
-    \`\`\`
-3.  **Install dependencies:**
-    \`\`\`bash
-    pip install -r requirements.txt
-    \`\`\`
-4.  **Run the Streamlit application:**
-    \`\`\`bash
-    streamlit run app.py
-    \`\`\`
-    The application will be available at \`http://localhost:8501\`.
+### Frontend
 
-    **Note:** Ensure the FastAPI backend is running before starting the Streamlit app, or update the \`FASTAPI_URL\` in \`frontend/app.py\` to your deployed backend URL.
+* Streamlit
+* Requests
 
-## Deployment
+---
 
-### FastAPI on Render
+# ⚙️ Backend Setup
 
-1.  Create a new web service on Render.
-2.  Connect your Git repository.
-3.  Configure the build command: \`pip install -r backend/requirements.txt\`
-4.  Configure the start command: \`uvicorn backend.main:app --host 0.0.0.0 --port $PORT\`
-5.  Set environment variables as needed (e.g., for API keys if you switch translation services).
+## 1. Navigate to backend
 
-### Streamlit on Streamlit Community Cloud
+```bash
+cd backend
+```
 
-1.  Ensure your \`frontend/requirements.txt\` is complete.
-2.  Add a \`secrets.toml\` file in a \`.streamlit/\` directory within your frontend code for sensitive information like the FastAPI URL.
-    \`\`\`toml
-    # .streamlit/secrets.toml
-    FASTAPI_URL = "YOUR_RENDER_DEPLOYMENT_URL"
-    \`\`\`
-3.  Deploy your Streamlit app to a Git repository (e.g., GitHub).
-4.  Connect Streamlit Community Cloud to your repository.
-5.  Configure the app settings, pointing to your Streamlit code.
+## 2. Create virtual environment
 
-## Code Quality and Features
+### Windows
 
--   **Modular Structure:** Backend and frontend are separated into distinct directories.
--   **Pydantic Schemas:** Used for request and response validation in the FastAPI backend.
--   **Type Hints:** Used throughout the Python code for better readability and maintainability.
--   **Error Handling:** Basic error handling is implemented in both backend and frontend.
--   **Requirements Files:** \`requirements.txt\` included for both backend and frontend.
--   **README:** This file provides setup and deployment instructions.
--   **Comments and Docstrings:** Basic comments are included; further docstrings can be added.
--   **Production-Ready Code Quality:** Code follows standard Python practices. The backend uses \`uvicorn\` for production deployment, and the frontend leverages Streamlit's deployment options.
--   **Streamlit Features:** Includes text area, translate button, output cards, loading spinner, error handling, character counter, and clear button.
--   **FastAPI Endpoints:** \`/health\` and \`/translate\` endpoints are implemented.
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Linux / Mac
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+## 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## 4. Run FastAPI server
+
+```bash
+uvicorn main:app --reload --port 8000
+```
+
+Server:
+
+```text
+http://localhost:8000
+```
+
+Swagger Documentation:
+
+```text
+http://localhost:8000/docs
+```
+
+---
+
+# ⚙️ Frontend Setup
+
+## 1. Navigate to frontend
+
+```bash
+cd frontend
+```
+
+## 2. Create virtual environment
+
+### Windows
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Linux / Mac
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+## 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## 4. Run Streamlit
+
+```bash
+streamlit run app.py
+```
+
+Application:
+
+```text
+http://localhost:8501
+```
+
+---
+
+# 📡 API Endpoints
+
+## Health Check
+
+### Endpoint
+
+```http
+GET /health
+```
+
+### Response
+
+```json
+{
+  "status": "healthy"
+}
+```
+
+---
+
+## Translate Text
+
+### Endpoint
+
+```http
+POST /translate
+```
+
+### Request
+
+```json
+{
+  "text": "हेलो"
+}
+```
+
+### Response
+
+```json
+{
+  "english": "Hello",
+  "tamil": "ஹலோ",
+  "bengali": "হ্যালো"
+}
+```
+
+---
+
+# ☁️ Deployment
+
+## Backend Deployment (Render)
+
+Create a new **Web Service**.
+
+### Root Directory
+
+```text
+backend
+```
+
+### Build Command
+
+```bash
+pip install -r requirements.txt
+```
+
+### Start Command
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
+
+After deployment:
+
+```text
+https://your-app-name.onrender.com
+https://your-app-name.onrender.com/docs
+```
+
+---
+
+## Frontend Deployment (Streamlit Community Cloud)
+
+Set the backend URL inside `app.py`:
+
+```python
+FASTAPI_URL = "https://your-render-url.onrender.com"
+```
+
+Deploy the repository on Streamlit Community Cloud and set:
+
+* Repository: Your GitHub repository
+* Main file path:
+
+```text
+frontend/app.py
+```
+
+---
+
+# 🧪 Example Usage
+
+Input:
+
+```text
+मेरा नाम आर्यन है
+```
+
+Output:
+
+```text
+English : My name is Aryan
+Tamil    : என் பெயர் ஆர்யன்
+Bengali  : আমার নাম আর্যন
+```
+
+---
+
+# 🎯 Learning Outcomes
+
+This project demonstrates:
+
+* REST API development using FastAPI
+* API consumption using Streamlit
+* Request and response validation with Pydantic
+* Frontend and backend separation
+* Deployment of production-ready Python applications
+* Integration of multilingual translation services
+
+---
+
+## 👨‍💻 Author
+
+**Aryan Shukla**
+
+B.Tech CSE (AI/ML) Student
+Python • FastAPI • Machine Learning • RAG • AI Applications
